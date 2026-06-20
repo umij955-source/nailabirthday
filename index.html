@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Naila</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(180deg,#ffffff,#fff5f8);
+overflow-x:hidden;
+overflow-y:auto;
+min-height:100vh;
+}
+
+.page{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:40px 20px;
+}
+
+h1{
+font-family:'Cormorant Garamond',serif;
+font-size:90px;
+color:#d67a92;
+font-weight:600;
+}
+
+.subtitle{
+letter-spacing:5px;
+text-transform:uppercase;
+font-size:12px;
+color:#b88b96;
+margin-bottom:10px;
+}
+
+.desc{
+max-width:650px;
+line-height:2;
+color:#555;
+text-align:center;
+margin:auto;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:#d67a92;
+color:white;
+font-size:15px;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-3px);
+}
+
+#page2{
+display:none;
+}
+
+.card{
+background:white;
+padding:50px;
+border-radius:25px;
+max-width:800px;
+width:90%;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+margin:50px auto;
+position:relative;
+z-index:10;
+text-align:center;
+}
+
+.for-you{
+font-family:'Cormorant Garamond',serif;
+font-size:70px;
+color:#d67a92;
+margin-bottom:15px;
+animation:float 3s infinite;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-8px);
+}
+}
+
+.answers{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+#success{
+display:none;
+margin-top:30px;
+animation:show .8s;
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.big{
+font-size:35px;
+color:#d67a92;
+font-weight:bold;
+}
+
+.falling{
+position:fixed;
+top:-50px;
+font-size:22px;
+animation:fall linear forwards;
+opacity:.6;
+pointer-events:none;
+z-index:0;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+
+.level{
+margin:15px 0;
+font-size:18px;
+color:#888;
+}
+
+</style>
+</head>
+<body>
+
+<div class="page" id="page1">
+
+<div class="subtitle">
+Special Day
+</div>
+
+<h1>Naila</h1>
+
+<div class="level">
+Level 21 Unlocked ✨
+</div>
+
+<p class="desc">
+
+Hari ini adalah hari spesial untuk seseorang
+yang spesial juga.
+
+<br><br>
+
+Semoga hari ini menyenangkan,
+makanan yang dimakan enak,
+dan orang-orang di sekitarmu
+tidak bikin emosi.
+
+</p>
+
+<br><br>
+
+<button onclick="openLetter()">
+Buka Surat
+</button>
+
+</div>
+
+<div class="page" id="page2">
+
+<div class="card">
+
+<div class="for-you">
+For Naila
+</div>
+
+<p class="desc">
+
+Selamat ulang tahun.
+
+<br><br>
+
+Selamat datang di usia 21.
+
+<br><br>
+
+Semoga tahun ini membawa lebih banyak
+hal baik, lebih banyak alasan untuk tersenyum,
+dan lebih banyak cerita yang nantinya bisa dikenang.
+
+<br><br>
+
+Terima kasih sudah menjadi teman yang baik selama ini.
+
+Terima kasih juga karena berhasil bertahan
+menghadapi segala kerandoman yang ada 
+
+<br><br>
+
+Semoga semua yang sedang kamu perjuangkan
+berjalan lancar dan membuahkan hasil yang baik.
+
+<br><br>
+
+Tetaplah menjadi orang baik.
+
+</p>
+
+<br>
+
+<h3>
+Rate pengalaman berteman denganku:
+</h3>
+
+<div class="answers">
+
+<button class="kabur">7/10</button>
+
+<button class="kabur">8/10</button>
+
+<button class="kabur">9/10</button>
+
+<button onclick="correct()">
+100000/10
+</button>
+
+</div>
+
+<div id="success">
+
+<div class="big">
+Nah gitu dong, baru jujur 😌
+</div>
+
+<br>
+
+<p class="desc">
+
+Terima kasih sudah memilih jawaban yang benar.
+
+<br><br>
+
+Semoga pertemanan kita tetap awet,
+tetap seru,
+dan tetap bisa saling mengganggu
+untuk waktu yang lama.
+
+<br><br>
+
+Selamat ulang tahun sekali lagi.
+
+<br><br>
+
+— Temenmu yang selalu keren
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openLetter(){
+
+document.getElementById("page1").style.display="none";
+document.getElementById("page2").style.display="flex";
+
+startAnimation();
+
+}
+
+function correct(){
+
+document.querySelector(".answers").style.display="none";
+
+document.querySelector("h3").style.display="none";
+
+document.getElementById("success").style.display="block";
+
+for(let i=0;i<120;i++){
+createStar();
+}
+
+}
+
+
+function createStar(){
+
+const star=document.createElement("div");
+
+star.innerHTML="✨";
+
+star.style.position="fixed";
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+star.style.fontSize="25px";
+
+star.style.animation="show .8s";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+
+star.remove();
+
+},2500);
+
+}
+
+function startAnimation(){
+
+setInterval(()=>{
+
+const item=document.createElement("div");
+
+item.className="falling";
+
+item.innerHTML=
+Math.random()>0.5 ? "🌸" : "✦";
+
+item.style.left=
+Math.random()*100+"vw";
+
+item.style.animationDuration=
+(Math.random()*6+8)+"s";
+
+document.body.appendChild(item);
+
+setTimeout(()=>{
+item.remove();
+},12000);
+
+},350);
+
+}
+
+const pesanKabur=[
+
+"Yakin?",
+"Salah 😌",
+"Coba Lagi",
+"Kurang Besar",
+"Hampir",
+"Hehe"
+
+];
+
+const tombolKabur=
+document.querySelectorAll(".kabur");
+
+tombolKabur.forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+const x=
+Math.random()*(window.innerWidth-180);
+
+const y=
+Math.random()*(window.innerHeight-120);
+
+btn.style.position="fixed";
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+
+// hapus bagian ini saja
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
